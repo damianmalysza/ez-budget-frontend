@@ -8,7 +8,6 @@ import rootReducer from './reducers/manageBudgetsAndExpenses'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-let reducer
 let store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 
 ReactDOM.render(
