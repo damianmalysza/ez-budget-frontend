@@ -1,8 +1,13 @@
+import Container from "react-bootstrap/Container"
+import Button from 'react-bootstrap/Button'
+
+
 function App() {
   return (
-    <div>
+    <Container>
      Hello from App Component 
-    </div>
+     <Button>Text</Button>
+    </Container>
   );
 }
 
