@@ -21,6 +21,7 @@ class BudgetsContainer extends Component {
         alignItems: "flex-start"
       }}>
         Render cards for budgets here
+        {/* todo: use map method to iterate over budgets from redux store and render budgetcard for each */}
         <BudgetCard />
       </div>
     );
