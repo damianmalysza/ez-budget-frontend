@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import BudgetCard from '../components/BudgetCard'
 import { connect } from 'react-redux'
+import {fetchBudgets} from '../actions/fetchBudgets'
 
 // this component should be connected to redux and grab all the budgets from state
 // should use a react lifecycle method to dispatch the fetchbudgets action 
 
 class BudgetsContainer extends Component {
+  componentDidMount() {
+    // todo: action is being hit - edit action to fetch budgets from API and load into state
+    this.props.fetchBudgets()
+  }
+  
   render() {
     return (
         <div style={{
@@ -29,7 +35,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchBudgets: dispatch
+    fetchBudgets: () => dispatch(fetchBudgets())
   }
 }
 
