@@ -1,5 +1,6 @@
 import Container from "react-bootstrap/Container"
 import {Button, Stack} from "react-bootstrap"
+import BudgetsContainer from "./containers/BudgetsContainer"
 
 
 function App() {
@@ -14,14 +15,7 @@ function App() {
           Add Expense
         </Button>
       </Stack>
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
-        gap: "1rem",
-        alignItems: "flex-start"
-      }}>
-        Render cards for budgets here
-      </div>
+      <BudgetsContainer />
     </Container>
   );
 }
