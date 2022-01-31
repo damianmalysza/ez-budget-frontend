@@ -1,3 +1,9 @@
 export default function budgetsReducer(state = [], action){
-  return state
+  switch (action.type) {
+    case "ADD_BUDGETS":
+      debugger
+      return [...state,action.payload]
+    default:
+      return state
+  }
 }
