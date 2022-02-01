@@ -8,7 +8,6 @@ import {fetchBudgets} from '../actions/fetchBudgets'
 
 class BudgetsContainer extends Component {
   componentDidMount() {
-    // todo: action is being hit - edit action to fetch budgets from API and load into state
     this.props.fetchBudgets()
   }
   
@@ -20,10 +19,7 @@ class BudgetsContainer extends Component {
         gap: "1rem",
         alignItems: "flex-start"
       }}>
-        Render cards for budgets here
-        {this.props.budgets}
-        {/* todo: use map method to iterate over budgets from redux store and render budgetcard for each */}
-        <BudgetCard />
+        {this.props.budgets.map(budget => <BudgetCard budget={budget}/>)}
       </div>
     );
   }
