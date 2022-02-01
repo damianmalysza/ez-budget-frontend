@@ -19,7 +19,7 @@ class BudgetsContainer extends Component {
         gap: "1rem",
         alignItems: "flex-start"
       }}>
-        {this.props.budgets.map(budget => <BudgetCard budget={budget}/>)}
+        {this.props.budgets.map(budget => <BudgetCard key={budget.id} budget={budget}/>)}
       </div>
     );
   }
