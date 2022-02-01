@@ -19,7 +19,11 @@ class BudgetsContainer extends Component {
         gap: "1rem",
         alignItems: "flex-start"
       }}>
-        {this.props.budgets.map(budget => <BudgetCard key={budget.id} budget={budget}/>)}
+        {this.props.budgets.map(budget => <BudgetCard key={budget.id} 
+        name={budget.attributes.name} 
+        max={budget.attributes.budget_max}
+        expenses={budget.attributes.expenses}  
+        />)}
       </div>
     );
   }
