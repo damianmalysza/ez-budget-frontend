@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Button, Card, Stack } from "react-bootstrap";
-import AddExpenseModal from './AddExpenseModal'
+import AddExpenseModal from './AddExpenseModal';
+import ExpenseListModal from './ExpenseListModal';
 
 class Budgetcard extends Component {
   
   state = {
-    showExpenseModal: false
+    showExpenseModal: false,
+    showExpenseListModal: false
   }
 
   handleExpenseModal = () => {
@@ -15,6 +17,14 @@ class Budgetcard extends Component {
       }
     }
     )
+  }
+
+  handleExpenseListModal = () => {
+    this.setState(state => {
+      return {
+        showExpenseListModal: !state.showExpenseListModal
+      }
+    })
   }
   
   render() {
@@ -29,11 +39,9 @@ class Budgetcard extends Component {
             </div>
           </Card.Title>
           <Stack direction="horizontal" gap="2" className="mt-4">
-              {/* todo: make this button open up the add expense form modal */}
             <Button variant="outline-primary" className="ms-auto" onClick={this.handleExpenseModal}>Add Expense</Button>
-            {/* todo: make this button open the view expenses modal */}
             {/* think about how expenses should be stored, they are brought in through the budgets state but maybe they should be in their own state? */}
-            <Button variant="outline-secondary">View Expenses</Button>
+            <Button variant="outline-secondary" onClick={this.handleExpenseListModal}>View Expenses</Button>
           </Stack>
         </Card.Body>
       </Card> 
@@ -41,6 +49,7 @@ class Budgetcard extends Component {
         show={this.state.showExpenseModal}
         handleClose={() => this.handleExpenseModal}
       />
+      <ExpenseListModal show={this.state.showExpenseListModal} handleClose={() => this.handleExpenseListModal}/>
      </>
     );
   }
