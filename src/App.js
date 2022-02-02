@@ -16,7 +16,7 @@ function App() {
             </Button>
           </Link>
         </Stack>
-        <Route exact path="/" component={BudgetsContainer} />
+        <Route path="/" component={BudgetsContainer} />
         <Route exact path="/budgets/new" component={AddBudgetModal}/>
       </Container>
     </Router>
