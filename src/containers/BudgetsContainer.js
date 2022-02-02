@@ -21,7 +21,7 @@ class BudgetsContainer extends Component {
       }}>
         {this.props.budgets.map(budget => <BudgetCard key={budget.id} 
         name={budget.attributes.name} 
-        max={budget.attributes.budget_max}
+        budget_max={budget.attributes.budget_max}
         expenses={budget.attributes.expenses}  
         />)}
       </div>
