@@ -2,34 +2,13 @@ import React, { Component } from 'react';
 import { Button, Card, Stack } from "react-bootstrap";
 import AddExpenseModal from './AddExpenseModal';
 import ExpenseListModal from './ExpenseListModal';
+import {BrowserRouter as Router, Route, Link} from "react-router-dom"
 
 class Budgetcard extends Component {
   
-  state = {
-    showExpenseModal: false,
-    showExpenseListModal: false
-  }
-
-  handleExpenseModal = () => {
-    this.setState(state => {
-      return {
-        showExpenseModal: !state.showExpenseModal
-      }
-    }
-    )
-  }
-
-  handleExpenseListModal = () => {
-    this.setState(state => {
-      return {
-        showExpenseListModal: !state.showExpenseListModal
-      }
-    })
-  }
-  
   render() {
     return (
-     <> 
+     <Router> 
       <Card >
         <Card.Body>
           <Card.Title className="d-flex justify-content-between align-items-baseline fw-normal mb-3">
@@ -39,18 +18,19 @@ class Budgetcard extends Component {
             </div>
           </Card.Title>
           <Stack direction="horizontal" gap="2" className="mt-4">
-            <Button variant="outline-primary" className="ms-auto" onClick={this.handleExpenseModal}>Add Expense</Button>
+            <Link to={`/budgets/${this.props.name}/expenses/new`}>
+            <Button variant="outline-primary" className="ms-auto">Add Expense</Button>
+            </Link>
             {/* think about how expenses should be stored, they are brought in through the budgets state but maybe they should be in their own state? */}
+            <Link to={`/budgets/${this.props.name}/expenses`}>
             <Button variant="outline-secondary" onClick={this.handleExpenseListModal}>View Expenses</Button>
+            </Link>
           </Stack>
         </Card.Body>
       </Card> 
-      <AddExpenseModal 
-        show={this.state.showExpenseModal}
-        handleClose={() => this.handleExpenseModal}
-      />
-      <ExpenseListModal show={this.state.showExpenseListModal} handleClose={() => this.handleExpenseListModal}/>
-     </>
+      <Route exact path={`/budgets/${this.props.name}/expenses/new`} component={AddExpenseModal}/>
+      <Route exact path={`/budgets/${this.props.name}/expenses`} component={ExpenseListModal}/>
+     </Router>
     );
   }
 }
