@@ -5,11 +5,18 @@ class AddExpenseModal extends Component {
   handleClose = () => {
     this.props.history.goBack()
   }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+  }
   
   render() {
     return (
       <Modal show="true" onHide={this.handleClose}>
-        ADD EXPENSE FORM HERE!
+        <Form onSubmit={this.handleSubmit}>
+
+
+        </Form>
       </Modal>
     );
   }
