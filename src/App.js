@@ -7,7 +7,7 @@ import AddBudgetModal from "./components/AddBudgetModal";
 function App() {
   return (
     <Router>
-      <Container>
+      <Container className="my-4">
         <Stack direction="horizontal" gap="2" className="mb-4">
           <Link to="/" style={{ textDecoration: 'none' }} className="me-auto"><h1>EZ Budget</h1></Link>
           <Link to="/budgets/new">
