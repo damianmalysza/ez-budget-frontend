@@ -8,7 +8,8 @@ class AddBudgetModal extends Component {
   
   state = {
     name: "",
-    budget_max: 1
+    budget_max: 1,
+    form_errors: ""
   }
 
   handleModalClose = () => {

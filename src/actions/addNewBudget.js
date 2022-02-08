@@ -8,6 +8,7 @@ export function addNewBudget(budgetData){
       body: JSON.stringify(budgetData)
     }).then(response => response.json())
     .then(data => {
+      //todo : figure out behavior if adding wasn't successful
       dispatch({type:"ADD_NEW_BUDGET",payload:data});
     })
   }
