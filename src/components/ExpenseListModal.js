@@ -7,6 +7,7 @@ class Expenselistmodal extends Component {
   }
 
   render() {
+    debugger
     return (
       <Modal show="true" onHide={this.handleClose}>
         List Expenses Here!
