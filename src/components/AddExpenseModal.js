@@ -19,6 +19,7 @@ class AddExpenseModal extends Component {
     event.preventDefault()
     this.props.addNewExpense(this.state)
     this.handleModalClose()
+    // potential improvement - add component that renders a checkmark image to show that expense got added or maybe have expense list opened automatically
   }
 
   handleFormChange = (event) => {
