@@ -21,7 +21,6 @@ class Budgetcard extends Component {
             <Link to={`/budgets/${this.props.name}/expenses/new`}>
             <Button variant="outline-primary" className="ms-auto">Add Expense</Button>
             </Link>
-            {/* think about how expenses should be stored, they are brought in through the budgets state but maybe they should be in their own state? */}
             <Link to={`/budgets/${this.props.name}/expenses`}>
             <Button variant="outline-secondary" onClick={this.handleExpenseListModal}>View Expenses</Button>
             </Link>
