@@ -8,7 +8,7 @@ export function addNewExpense(expenseData){
       body: JSON.stringify(expenseData)
     }).then(response => response.json())
     .then(data => {
-      dispatch({type:"ADD_EXPENSE_TO_BUDGET",payload:data})
+      dispatch({type:"UPDATE_BUDGET_EXPENSES",payload:data})
     })
   }
 }
