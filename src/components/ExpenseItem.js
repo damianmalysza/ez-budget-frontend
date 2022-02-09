@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import {Stack, Button} from 'react-bootstrap'
 
 class Expenseitem extends Component {
+  handleExpenseDelete = event => {
+    //todo - figure out how to handle expense delete event
+  }
+  
   render() {
     return (
       <Stack direction="horizontal" gap="2" key={this.props.expense.id}>

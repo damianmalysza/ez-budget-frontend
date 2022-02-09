@@ -17,7 +17,7 @@ class Expenselistmodal extends Component {
         </Modal.Header>
         <Modal.Body>
           <Stack direction="vertical" gap="3">
-            {this.props.expenses.map(expense => <ExpenseItem expense={expense}/>)}
+            {this.props.expenses.map(expense => <ExpenseItem key={expense.id} expense={expense}/>)}
           </Stack>
         </Modal.Body>
       </Modal>

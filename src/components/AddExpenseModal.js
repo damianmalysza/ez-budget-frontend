@@ -1,5 +1,7 @@
 import {Form, Modal, Button} from "react-bootstrap";
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {addNewExpense} from "../actions/addNewExpense"
 
 class AddExpenseModal extends Component {
   state = {
@@ -9,14 +11,14 @@ class AddExpenseModal extends Component {
     form_errors: ""
   }
   
-  handleClose = () => {
+  handleModalClose = () => {
     this.props.history.goBack()
   }
 
   handleSubmit = (event) => {
     event.preventDefault()
-    console.log(this.state)
-    //todo - set up behavior to send post request to add expense to budget
+    this.props.addNewExpense(this.state)
+    this.handleModalClose()
   }
 
   handleFormChange = (event) => {
@@ -27,7 +29,7 @@ class AddExpenseModal extends Component {
 
   render() {
     return (
-      <Modal show="true" onHide={this.handleClose}>
+      <Modal show="true" onHide={this.handleModalClose}>
         <Form onSubmit={this.handleSubmit}>
           <Modal.Header closeButton>
             <Modal.Title>New Expense</Modal.Title>
@@ -51,4 +53,8 @@ class AddExpenseModal extends Component {
   }
 }
 
-export default AddExpenseModal;
+const mapDispatchToProps = dispatch => {
+  return {addNewExpense: (expenseData) => dispatch(addNewExpense(expenseData))}
+}
+
+export default connect(null,mapDispatchToProps)(AddExpenseModal);
