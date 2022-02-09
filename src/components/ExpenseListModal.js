@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Modal, Button, Stack} from "react-bootstrap";
-import ExpenseItem from './ExpenseItem'
+import ExpenseItem from './ExpenseItem';
+import {connect} from 'react-redux';
 
 class Expenselistmodal extends Component {
   handleClose = () => {
@@ -8,6 +9,9 @@ class Expenselistmodal extends Component {
   }
 
   render() {
+    const budget = this.props.budgets.find(budget => budget.id === this.props.budget_id)
+    const expenses = budget.attributes.expenses
+    
     return (
       <Modal show="true" onHide={this.handleClose}>
         <Modal.Header closeButton>
@@ -17,7 +21,7 @@ class Expenselistmodal extends Component {
         </Modal.Header>
         <Modal.Body>
           <Stack direction="vertical" gap="3">
-            {this.props.expenses.map(expense => <ExpenseItem key={expense.id} expense={expense}/>)}
+            {expenses.map(expense => <ExpenseItem key={expense.id} expense={expense}/>)}
           </Stack>
         </Modal.Body>
       </Modal>
@@ -25,4 +29,10 @@ class Expenselistmodal extends Component {
   }
 }
 
-export default Expenselistmodal;
+const mapStateToProps = state => {
+  return {
+    budgets: state.budgets
+  }
+}
+
+export default connect(mapStateToProps)(Expenselistmodal);

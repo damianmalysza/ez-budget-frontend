@@ -29,7 +29,7 @@ class Budgetcard extends Component {
         </Card.Body>
       </Card> 
       <Route exact path={`/budgets/${this.props.name}/expenses/new`} render={props => <AddExpenseModal budget_id={this.props.budget_id} {...props} />}/>
-      <Route exact path={`/budgets/${this.props.name}/expenses`} render={props => <ExpenseListModal budget_name={this.props.name} expenses={this.props.expenses} {...props}/>}/>
+      <Route exact path={`/budgets/${this.props.name}/expenses`} render={props => <ExpenseListModal budget_name={this.props.name} budget_id={this.props.budget_id} {...props}/>}/>
 
      </Router>
     );
