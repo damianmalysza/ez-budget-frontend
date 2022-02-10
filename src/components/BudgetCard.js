@@ -15,7 +15,8 @@ class Budgetcard extends Component {
           <Card.Title className="d-flex justify-content-between align-items-baseline fw-normal mb-3">
             <div className="me-2">{this.props.name}</div>
             <div className="d-flex align-items-baseline">
-              <span className="text-muted fs-6 ms-1">{currencyFormatter.format(this.props.budget_max)}</span>
+              {currencyFormatter.format(this.props.expense_total)}
+              <span className="text-muted fs-6 ms-1"> / {currencyFormatter.format(this.props.budget_max)}</span>
             </div>
           </Card.Title>
           <Stack direction="horizontal" gap="2" className="mt-4">

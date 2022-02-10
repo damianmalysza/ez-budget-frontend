@@ -24,6 +24,7 @@ class BudgetsContainer extends Component {
         name={budget.attributes.name} 
         budget_max={budget.attributes.budget_max}
         expenses={budget.attributes.expenses}  
+        expense_total={budget.attributes.expense_total}
         />)}
       </div>
     );
