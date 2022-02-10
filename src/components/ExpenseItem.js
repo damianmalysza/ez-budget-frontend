@@ -6,9 +6,7 @@ import {currencyFormatter} from '../App'
 
 class Expenseitem extends Component {
   handleExpenseDelete = event => {
-    console.log(this.props)
     this.props.removeExpense(this.props.expense,this.props.budget_id)
-    //todo - figure out how to handle expense delete event
   }
   
   render() {
