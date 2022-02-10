@@ -5,11 +5,12 @@ export default function budgetsReducer(state = [], action){
     case "ADD_NEW_BUDGET":
       return [...state,action.payload.data]
     case "UPDATE_BUDGET_EXPENSES":
-      const idxOfBudget = state.findIndex(budget => budget.id === action.payload.data.id)
+      const newState = [...state]
+      const idxOfBudget = newState.findIndex(budget => budget.id === action.payload.data.id)
       if (idxOfBudget !== -1) {
-        state[idxOfBudget] = action.payload.data
+        newState[idxOfBudget] = action.payload.data
       }
-      return state
+      return newState
     default:
       return state
   }
