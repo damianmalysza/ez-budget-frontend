@@ -21,7 +21,7 @@ class Expenselistmodal extends Component {
         </Modal.Header>
         <Modal.Body>
           <Stack direction="vertical" gap="3">
-            {expenses.map(expense => <ExpenseItem key={expense.id} expense={expense}/>)}
+            {expenses.map(expense => <ExpenseItem key={expense.id} expense={expense} budget_id={budget.id}/>)}
           </Stack>
         </Modal.Body>
       </Modal>

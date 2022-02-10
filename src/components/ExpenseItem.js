@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-import {Stack, Button} from 'react-bootstrap'
+import {Stack, Button} from 'react-bootstrap';
+import {connect} from 'react-redux';
+import {removeExpense} from '../actions/removeExpense'
 
 class Expenseitem extends Component {
   handleExpenseDelete = event => {
+    console.log(this.props)
+    this.props.removeExpense(this.props.expense,this.props.budget_id)
     //todo - figure out how to handle expense delete event
   }
   
@@ -16,6 +20,10 @@ class Expenseitem extends Component {
       );
     }
   }
+
+const mapDispatchToProps = dispatch => {
+  return {removeExpense: (expense,budgetId) => dispatch(removeExpense(expense,budgetId))}
+}
   
-  export default Expenseitem;
+  export default connect(null, mapDispatchToProps)(Expenseitem);
   
