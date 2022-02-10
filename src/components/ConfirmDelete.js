@@ -11,6 +11,7 @@ class Confirmdelete extends Component {
 
   handleDelete = event => {
     this.props.deleteBudget(this.props.budget_id)
+    this.handleModalClose()
   }
 
   render() {
