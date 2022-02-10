@@ -23,7 +23,7 @@ class Budgetcard extends Component {
           <Link to={`/budgets/${this.props.name}/delete`}>
             <Button size="sm" variant="outline-none" className="position-absolute top-0 end-0">&times;</Button>
           </Link>
-          <Card.Title className="d-flex justify-content-between align-items-baseline fw-normal mb-3 mt-2">
+          <Card.Title className="d-flex justify-content-between align-items-baseline fw-normal mb-3 mt-3">
             <div className="me-2">{this.props.name}</div>
             <div className="d-flex align-items-baseline">
               {currencyFormatter.format(this.props.expense_total)}
