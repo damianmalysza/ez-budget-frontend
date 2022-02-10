@@ -6,7 +6,7 @@ import {addNewExpense} from "../actions/addNewExpense"
 class AddExpenseModal extends Component {
   state = {
     name: "",
-    amount: 1,
+    amount: "",
     budget_id: this.props.budget_id,
     form_errors: ""
   }
@@ -42,7 +42,7 @@ class AddExpenseModal extends Component {
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Amount</Form.Label>
-              <Form.Control type="number" min={1} step={0.01} name="amount" value={this.state.amount} required onChange={event => this.handleFormChange(event)}/>
+              <Form.Control type="number" placeholder="Enter dollar amount of expense" min={1} step={0.01} name="amount" value={this.state.amount} required onChange={event => this.handleFormChange(event)}/>
             </Form.Group>
           <div className="d-flex justify-content-end">
             <Button variant="primary" type="submit">Add Expense</Button>

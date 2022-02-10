@@ -8,7 +8,7 @@ class AddBudgetModal extends Component {
   
   state = {
     name: "",
-    budget_max: 1,
+    budget_max: "",
     form_errors: ""
   }
 
@@ -43,7 +43,7 @@ class AddBudgetModal extends Component {
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Budget Max</Form.Label>
-              <Form.Control type="number" min={1} step={0.01} name="budget_max" value={this.state.budget_max} required onChange={event => this.handleFormChange(event)}/>
+              <Form.Control type="number" placeholder="Enter dollar amount for budget" min={1} step={0.01} name="budget_max" value={this.state.budget_max} required onChange={event => this.handleFormChange(event)}/>
             </Form.Group>
             <div className="d-flex justify-content-end">
               <Button variant="primary" type="submit">
