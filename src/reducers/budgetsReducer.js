@@ -11,6 +11,8 @@ export default function budgetsReducer(state = [], action){
         newState[idxOfBudget] = action.payload.data
       }
       return newState
+    case "DELETE_BUDGET":
+      return state.filter(budget => budget.id !== action.payload.data.id)
     default:
       return state
   }

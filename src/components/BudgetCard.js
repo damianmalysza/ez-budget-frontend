@@ -4,6 +4,7 @@ import AddExpenseModal from './AddExpenseModal';
 import ExpenseListModal from './ExpenseListModal';
 import {BrowserRouter as Router, Route, Link} from "react-router-dom"
 import {currencyFormatter} from '../App'
+import ConfirmDelete from './ConfirmDelete'
 
 class Budgetcard extends Component {
   
@@ -14,12 +15,15 @@ class Budgetcard extends Component {
     return "danger"
   }
 
-  render() {
+    render() {
     return (
      <Router> 
       <Card >
         <Card.Body>
-          <Card.Title className="d-flex justify-content-between align-items-baseline fw-normal mb-3">
+          <Link to={`/budgets/${this.props.name}/delete`}>
+            <Button size="sm" variant="outline-none" className="position-absolute top-0 end-0">&times;</Button>
+          </Link>
+          <Card.Title className="d-flex justify-content-between align-items-baseline fw-normal mb-3 mt-2">
             <div className="me-2">{this.props.name}</div>
             <div className="d-flex align-items-baseline">
               {currencyFormatter.format(this.props.expense_total)}
@@ -44,6 +48,7 @@ class Budgetcard extends Component {
       </Card> 
       <Route exact path={`/budgets/${this.props.name}/expenses/new`} render={props => <AddExpenseModal budget_id={this.props.budget_id} {...props} />}/>
       <Route exact path={`/budgets/${this.props.name}/expenses`} render={props => <ExpenseListModal budget_name={this.props.name} budget_id={this.props.budget_id} {...props}/>}/>
+      <Route exact path={`/budgets/${this.props.name}/delete`} render={props => <ConfirmDelete budget_id={this.props.budget_id} {...props}/>}/>
      </Router>
     );
   }
