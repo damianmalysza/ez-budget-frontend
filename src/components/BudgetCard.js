@@ -19,18 +19,17 @@ class Budgetcard extends Component {
             </div>
           </Card.Title>
           <Stack direction="horizontal" gap="2" className="mt-4">
-            <Link to={`/budgets/${this.props.name}/expenses/new`}>
-            <Button variant="outline-primary" className="ms-auto">Add Expense</Button>
+            <Link to={`/budgets/${this.props.name}/expenses/new`} className="ms-auto">
+              <Button variant="outline-primary">Add Expense</Button>
             </Link>
-            <Link to={`/budgets/${this.props.name}/expenses`}>
-            <Button variant="outline-secondary" onClick={this.handleExpenseListModal}>View Expenses</Button>
+            <Link to={`/budgets/${this.props.name}/expenses`} className="ms-auto">
+              <Button variant="outline-secondary" onClick={this.handleExpenseListModal}>View Expenses</Button>
             </Link>
           </Stack>
         </Card.Body>
       </Card> 
       <Route exact path={`/budgets/${this.props.name}/expenses/new`} render={props => <AddExpenseModal budget_id={this.props.budget_id} {...props} />}/>
       <Route exact path={`/budgets/${this.props.name}/expenses`} render={props => <ExpenseListModal budget_name={this.props.name} budget_id={this.props.budget_id} {...props}/>}/>
-
      </Router>
     );
   }
