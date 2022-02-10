@@ -10,8 +10,8 @@ class Budgetcard extends Component {
   
   progressBarColor = (current,max) => {
     const ratio = current / max
-    if (ratio < 0.5) return "primary"
-    if (ratio < 0.75) return "warning"
+    if (ratio < 0.75) return "success"
+    if (ratio < 1.0) return "warning"
     return "danger"
   }
 
