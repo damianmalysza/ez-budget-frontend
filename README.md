@@ -1,3 +1,9 @@
+# EZ Budget Frontend
+
+Note that this serves as the frontend for the following backend: https://github.com/damianmalysza/ez-budget-backend
+
+EZ Budget is single page application built using React and using Redux for state management. You will be able to add Budgets, add expenses to those budgets, and remove budgets and corresponding expenses. The project utilizes React-Bootstrap for styling and uses elements such as Progress bar to display the user's current status of expenses towards a budget.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
